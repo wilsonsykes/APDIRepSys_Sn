@@ -1,0 +1,698 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="toolStrip1.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="toolStripButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        5Mz/uCUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="toolStripButton1.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="toolStripButton1.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="toolStripButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 36</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 39</value>
+  </data>
+  <data name="toolStripLabel1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="toolStripLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 36</value>
+  </data>
+  <data name="toolStripLabel1.Text" xml:space="preserve">
+    <value>Load and Print this Report</value>
+  </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 39</value>
+  </data>
+  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 39</value>
+  </data>
+  <data name="toolStripLabel2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="toolStripLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 36</value>
+  </data>
+  <data name="toolStripLabel2.Text" xml:space="preserve">
+    <value>Select Sell-Thru No.</value>
+  </data>
+  <data name="toolStripComboBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 39</value>
+  </data>
+  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 39</value>
+  </data>
+  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 39</value>
+  </data>
+  <data name="toolStripButton2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="toolStripButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACRSURBVDhPY/j27dt/SjDYACcnJ7IwigEf3n8kCZNswPNb
+        J/+f6DYF0yA+yQac6Db5f6hWCmwIiE+mC0wIu2DS2Vf/F1x6DefjwlgNyNr34r/0wkdgTMgQDAOQNRNj
+        CIoBOg0rMTTDMLIhIHbriZeYBmDTiIxBGkEYxge5liQDsGGQqykyAISpZwAlmIEywMAAAAc1/Jwvt6sN
+        AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripButton2.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="toolStripButton2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 36</value>
+  </data>
+  <data name="toolStripButton2.Text" xml:space="preserve">
+    <value>Save Current Invty</value>
+  </data>
+  <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 39</value>
+  </data>
+  <data name="toolStripButton3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="toolStripButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACRSURBVDhPY/j27dt/SjDYACcnJ7IwigEf3n8kCZNswPNb
+        J/+f6DYF0yA+yQac6Db5f6hWCmwIiE+mC0wIu2DS2Vf/F1x6DefjwlgNyNr34r/0wkdgTMgQDAOQNRNj
+        CIoBOg0rMTTDMLIhIHbriZeYBmDTiIxBGkEYxge5liQDsGGQqykyAISpZwAlmIEywMAAAAc1/Jwvt6sN
+        AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="toolStripButton3.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="toolStripButton3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 36</value>
+  </data>
+  <data name="toolStripButton3.Text" xml:space="preserve">
+    <value>Change Store Grp</value>
+  </data>
+  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1029, 39</value>
+  </data>
+  <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="toolStrip1.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>122, 17</value>
+  </metadata>
+  <data name="toolStrip2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="toolStrip2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 605</value>
+  </data>
+  <data name="toolStrip2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1029, 25</value>
+  </data>
+  <data name="toolStrip2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="toolStrip2.Text" xml:space="preserve">
+    <value>toolStrip2</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.Name" xml:space="preserve">
+    <value>toolStrip2</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="dataGridView1.ColumnHeadersHeight" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="sellthrunoDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Sell-Thru No</value>
+  </data>
+  <data name="rrdateDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>RR Date</value>
+  </data>
+  <data name="poreferenceDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>PO Reference</value>
+  </data>
+  <data name="rrnoDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>RR No.</value>
+  </data>
+  <data name="suppliercodeDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Supplier Code</value>
+  </data>
+  <data name="productDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Stock No</value>
+  </data>
+  <data name="descriptionDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="beginvtyDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Beg Invty</value>
+  </data>
+  <data name="currentinvtyDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Current Invty</value>
+  </data>
+  <data name="currentinvtyamountDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Current Invty Amt</value>
+  </data>
+  <data name="categorycodeDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Category Code</value>
+  </data>
+  <data name="productstatusDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Product Status</value>
+  </data>
+  <data name="currentpriceDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Current Price</value>
+  </data>
+  <data name="storegroupDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Store Group</value>
+  </data>
+  <data name="nextscheddateDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Next Sell-Thru Date</value>
+  </data>
+  <data name="reportperiodDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Report Period</value>
+  </data>
+  <data name="mos3itemsoldDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>3 Mos Item Sold</value>
+  </data>
+  <data name="mos3salerateDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>3 Mos Sale Rate</value>
+  </data>
+  <data name="mos6itemsoldDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>6 Mos Item Sold</value>
+  </data>
+  <data name="mos6salerateDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>6 Mos Sale Rate</value>
+  </data>
+  <data name="mos9itemsoldDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>9 Mos Item Sold</value>
+  </data>
+  <data name="mos9closinginvtyDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Closing Invty</value>
+  </data>
+  <data name="mos9salerateDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>9 Mos Sale Rate</value>
+  </data>
+  <data name="mos9revenueDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Revenue</value>
+  </data>
+  <data name="mos9invtyamountDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Invty Amount</value>
+  </data>
+  <data name="orderqtyDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Order Qty</value>
+  </data>
+  <data name="orderamountDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Order Amount</value>
+  </data>
+  <metadata name="sys_sell_thruBindingSource3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>547, 17</value>
+  </metadata>
+  <metadata name="dataSet11.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>227, 17</value>
+  </metadata>
+  <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 42</value>
+  </data>
+  <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1029, 560</value>
+  </data>
+  <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;dataGridView1.Name" xml:space="preserve">
+    <value>dataGridView1</value>
+  </data>
+  <data name="&gt;&gt;dataGridView1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridView1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dataGridView1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="syssThruReport9TableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>332, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>9, 21</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1029, 630</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Sell-thru Summary Report 9 Mos</value>
+  </data>
+  <data name="&gt;&gt;toolStripButton1.Name" xml:space="preserve">
+    <value>toolStripButton1</value>
+  </data>
+  <data name="&gt;&gt;toolStripButton1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel1.Name" xml:space="preserve">
+    <value>toolStripLabel1</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
+    <value>toolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
+    <value>toolStripSeparator3</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel2.Name" xml:space="preserve">
+    <value>toolStripLabel2</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripComboBox1.Name" xml:space="preserve">
+    <value>toolStripComboBox1</value>
+  </data>
+  <data name="&gt;&gt;toolStripComboBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
+    <value>toolStripSeparator4</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator5.Name" xml:space="preserve">
+    <value>toolStripSeparator5</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripButton2.Name" xml:space="preserve">
+    <value>toolStripButton2</value>
+  </data>
+  <data name="&gt;&gt;toolStripButton2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator6.Name" xml:space="preserve">
+    <value>toolStripSeparator6</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripButton3.Name" xml:space="preserve">
+    <value>toolStripButton3</value>
+  </data>
+  <data name="&gt;&gt;toolStripButton3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;sellthrunoDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>sellthrunoDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;sellthrunoDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rrdateDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>rrdateDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;rrdateDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;poreferenceDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>poreferenceDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;poreferenceDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rrnoDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>rrnoDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;rrnoDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;suppliercodeDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>suppliercodeDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;suppliercodeDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;productDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>productDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;productDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;descriptionDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>descriptionDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;descriptionDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;beginvtyDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>beginvtyDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;beginvtyDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;currentinvtyDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>currentinvtyDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;currentinvtyDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;currentinvtyamountDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>currentinvtyamountDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;currentinvtyamountDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;categorycodeDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>categorycodeDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;categorycodeDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;productstatusDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>productstatusDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;productstatusDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;currentpriceDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>currentpriceDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;currentpriceDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;storegroupDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>storegroupDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;storegroupDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nextscheddateDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>nextscheddateDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;nextscheddateDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;reportperiodDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>reportperiodDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;reportperiodDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mos3itemsoldDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>mos3itemsoldDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;mos3itemsoldDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mos3salerateDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>mos3salerateDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;mos3salerateDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mos6itemsoldDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>mos6itemsoldDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;mos6itemsoldDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mos6salerateDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>mos6salerateDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;mos6salerateDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mos9itemsoldDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>mos9itemsoldDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;mos9itemsoldDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mos9closinginvtyDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>mos9closinginvtyDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;mos9closinginvtyDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mos9salerateDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>mos9salerateDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;mos9salerateDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mos9revenueDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>mos9revenueDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;mos9revenueDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mos9invtyamountDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>mos9invtyamountDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;mos9invtyamountDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;orderqtyDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>orderqtyDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;orderqtyDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;orderamountDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>orderamountDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;orderamountDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;sys_sell_thruBindingSource3.Name" xml:space="preserve">
+    <value>sys_sell_thruBindingSource3</value>
+  </data>
+  <data name="&gt;&gt;sys_sell_thruBindingSource3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataSet11.Name" xml:space="preserve">
+    <value>dataSet11</value>
+  </data>
+  <data name="&gt;&gt;dataSet11.Type" xml:space="preserve">
+    <value>APDIRepSys.DataSet.DataSet11, APDIRepSys, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;syssThruReport9TableAdapter1.Name" xml:space="preserve">
+    <value>syssThruReport9TableAdapter1</value>
+  </data>
+  <data name="&gt;&gt;syssThruReport9TableAdapter1.Type" xml:space="preserve">
+    <value>APDIRepSys.DataSet.DataSet11TableAdapters.SysSThruReport9TableAdapter, APDIRepSys, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>SysSTRpt9</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

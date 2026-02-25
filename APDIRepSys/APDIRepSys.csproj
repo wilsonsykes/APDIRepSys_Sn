@@ -1,26 +1,208 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWindowsForms>true</UseWindowsForms>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<PublishSingleFile>true</PublishSingleFile>
+		<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+		<SelfContained>true</SelfContained>
+		<PlatformTarget>x64</PlatformTarget>
+		<Platforms>x64</Platforms>
+		<ApplicationIcon>apdi_reporting_system_logo.ico</ApplicationIcon>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
+	<!-- ✅ Ensure proper RuntimeIdentifier only in Release mode -->
+	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+	</PropertyGroup>
+	<ItemGroup>
+	  <None Remove="Resources\apdi_loadingscreen.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Npgsql" Version="9.0.2" />
+		<PackageReference Include="System.Data.Odbc" Version="9.0.1" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\MyRep\MyRep.csproj" />
+	</ItemGroup>
+
+	<!-- ✅ Ensure Crystal Reports references are correctly set -->
+	<ItemGroup>
+		<Reference Include="CrystalDecisions.CrystalReports.Engine">
+			<HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win64_x64\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+		</Reference>
+		<Reference Include="CrystalDecisions.ReportSource">
+			<HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win64_x64\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
+		</Reference>
+		<Reference Include="CrystalDecisions.Shared">
+			<HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win64_x64\dotnet\CrystalDecisions.Shared.dll</HintPath>
+		</Reference>
+		<Reference Include="CrystalDecisions.Windows.Forms">
+			<HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win64_x64\dotnet\CrystalDecisions.Windows.Forms.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<!-- ✅ Ensure datasets and resources are properly referenced -->
+	<ItemGroup>
+		<Compile Update="DataSet\RfmdMemo.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>RfmdMemo.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="DataSet\RfmdMainForm.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>RfmdMainForm.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="DataSet\RfmdRecSummary.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>RfmdRecSummary.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="DataSet\SysSThruRpt3.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>SysSThruRpt3.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="DataSet\SysSThruRpt9.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>SysSThruRpt9.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="GMROI\SysSthruRpt9.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>SysSThruRpt9.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="DataSet\SysSThruRpt6.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>SysSThruRpt6.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="DataSet\SThruRpt3.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>SThruRpt3.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="DataSet\SThruRpt9.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>SThruRpt9.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="DataSet\SThruRpt6.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>SThruRpt6.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="DataSet\SysSThruRpt2.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>SysSThruRpt2.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="DataSet\GmroiRpt2.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>GmroiRpt2.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="DataSet\GmroiRpt1.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>GmroiRpt1.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="DataSet\SThruRpt2.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>SThruRpt2.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="DataSet\SThruReport.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>SThruReport.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="DataSet\RfmdMemo.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>RfmdMemo.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="DataSet\RfmdMainForm.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>RfmdMainForm.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="DataSet\RfmdRecSummary.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>RfmdRecSummary.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="DataSet\SysSThruRpt3.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>SysSThruRpt3.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="DataSet\SysSThruRpt9.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>SysSthruRpt9.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="DataSet\SysSThruRpt6.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>SysSThruRpt6.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="DataSet\SThruRpt3.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>SThruRpt3.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="DataSet\SThruRpt9.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>SThruRpt9.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="DataSet\SThruRpt6.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>SThruRpt6.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="DataSet\SysSThruRpt2.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>SysSThruRpt2.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="DataSet\GmroiRpt2.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>GmroiRpt2.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="DataSet\GmroiRpt1.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>GmroiRpt1.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="DataSet\SThruRpt2.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>SThruRpt2.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="DataSet\SThruReport.xsd">
+			<Generator>MSDataSetGenerator</Generator>
+			<LastGenOutput>SThruReport.Designer.cs</LastGenOutput>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="apdi_reporting_system_logo.ico" />
+	  <Content Include="Resources\apdi_loadingscreen.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
 
 </Project>

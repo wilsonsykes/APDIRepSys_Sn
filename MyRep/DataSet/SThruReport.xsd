@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="apdireportsConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="apdireportsConnectionString (Settings)" PropertyReference="ApplicationSettings.MyRep.Properties.Settings.GlobalReference.Default.apdireportsConnectionString" Provider="System.Data.Odbc" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SThruReportTableAdapter" GeneratorDataComponentClassName="SThruReportTableAdapter" Name="SThruReport" UserDataComponentName="SThruReportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="apdireportsConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        "year", product_category, unit_price, count_of_product, sold_qty, rr_qty, total_sales, sales_contribution, roi, inventory_level
+FROM            "public".sell_through_reports</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="year" DataSetColumn="year" />
+              <Mapping SourceColumn="product_category" DataSetColumn="product_category" />
+              <Mapping SourceColumn="unit_price" DataSetColumn="unit_price" />
+              <Mapping SourceColumn="count_of_product" DataSetColumn="count_of_product" />
+              <Mapping SourceColumn="sold_qty" DataSetColumn="sold_qty" />
+              <Mapping SourceColumn="rr_qty" DataSetColumn="rr_qty" />
+              <Mapping SourceColumn="total_sales" DataSetColumn="total_sales" />
+              <Mapping SourceColumn="sales_contribution" DataSetColumn="sales_contribution" />
+              <Mapping SourceColumn="roi" DataSetColumn="roi" />
+              <Mapping SourceColumn="inventory_level" DataSetColumn="inventory_level" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSet1" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SThruReport" msprop:Generator_RowEvHandlerName="SThruReportRowChangeEventHandler" msprop:Generator_RowDeletedName="SThruReportRowDeleted" msprop:Generator_RowDeletingName="SThruReportRowDeleting" msprop:Generator_RowEvArgName="SThruReportRowChangeEvent" msprop:Generator_TablePropName="SThruReport" msprop:Generator_RowChangedName="SThruReportRowChanged" msprop:Generator_UserTableName="SThruReport" msprop:Generator_RowChangingName="SThruReportRowChanging" msprop:Generator_RowClassName="SThruReportRow" msprop:Generator_TableClassName="SThruReportDataTable" msprop:Generator_TableVarName="tableSThruReport">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="year" msprop:Generator_ColumnPropNameInTable="yearColumn" msprop:Generator_ColumnPropNameInRow="year" msprop:Generator_UserColumnName="year" msprop:Generator_ColumnVarNameInTable="columnyear" type="xs:decimal" minOccurs="0" />
+              <xs:element name="product_category" msprop:Generator_ColumnPropNameInTable="product_categoryColumn" msprop:Generator_ColumnPropNameInRow="product_category" msprop:Generator_UserColumnName="product_category" msprop:Generator_ColumnVarNameInTable="columnproduct_category" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="unit_price" msprop:Generator_ColumnPropNameInTable="unit_priceColumn" msprop:Generator_ColumnPropNameInRow="unit_price" msprop:Generator_UserColumnName="unit_price" msprop:Generator_ColumnVarNameInTable="columnunit_price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="count_of_product" msprop:Generator_ColumnPropNameInTable="count_of_productColumn" msprop:Generator_ColumnPropNameInRow="count_of_product" msprop:Generator_UserColumnName="count_of_product" msprop:Generator_ColumnVarNameInTable="columncount_of_product" type="xs:long" minOccurs="0" />
+              <xs:element name="sold_qty" msprop:Generator_ColumnPropNameInTable="sold_qtyColumn" msprop:Generator_ColumnPropNameInRow="sold_qty" msprop:Generator_UserColumnName="sold_qty" msprop:Generator_ColumnVarNameInTable="columnsold_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rr_qty" msprop:Generator_ColumnPropNameInTable="rr_qtyColumn" msprop:Generator_ColumnPropNameInRow="rr_qty" msprop:Generator_UserColumnName="rr_qty" msprop:Generator_ColumnVarNameInTable="columnrr_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="total_sales" msprop:Generator_ColumnPropNameInTable="total_salesColumn" msprop:Generator_ColumnPropNameInRow="total_sales" msprop:Generator_UserColumnName="total_sales" msprop:Generator_ColumnVarNameInTable="columntotal_sales" type="xs:decimal" minOccurs="0" />
+              <xs:element name="sales_contribution" msprop:Generator_ColumnPropNameInTable="sales_contributionColumn" msprop:Generator_ColumnPropNameInRow="sales_contribution" msprop:Generator_UserColumnName="sales_contribution" msprop:Generator_ColumnVarNameInTable="columnsales_contribution" type="xs:decimal" minOccurs="0" />
+              <xs:element name="roi" msprop:Generator_ColumnPropNameInTable="roiColumn" msprop:Generator_ColumnPropNameInRow="roi" msprop:Generator_UserColumnName="roi" msprop:Generator_ColumnVarNameInTable="columnroi" type="xs:decimal" minOccurs="0" />
+              <xs:element name="inventory_level" msprop:Generator_ColumnPropNameInTable="inventory_levelColumn" msprop:Generator_ColumnPropNameInRow="inventory_level" msprop:Generator_UserColumnName="inventory_level" msprop:Generator_ColumnVarNameInTable="columninventory_level" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,11 @@
+﻿Rebuild started at 5:29 PM...
+1>------ Rebuild All started: Project: APDIRepSys, Configuration: Debug Any CPU ------
+Restored C:\Users\OP5\source\repos\APDIRepSys_Sn\APDIRepSys\APDIRepSys.csproj (in 18 ms).
+1>C:\Users\OP5\source\repos\APDIRepSys_Sn\APDIRepSys\STRptForm\Sellthrough.Designer.cs(187,43,187,70): warning CS0169: The field 'Sellthrough.idDataGridViewTextBoxColumn' is never used
+1>C:\Users\OP5\source\repos\APDIRepSys_Sn\APDIRepSys\STRptForm\Sellthrough.Designer.cs(190,43,190,75): warning CS0169: The field 'Sellthrough.productDataGridViewTextBoxColumn' is never used
+1>C:\Users\OP5\source\repos\APDIRepSys_Sn\APDIRepSys\STRptForm\Sellthrough.Designer.cs(188,43,188,82): warning CS0169: The field 'Sellthrough.orderreferenceDataGridViewTextBoxColumn' is never used
+1>C:\Users\OP5\source\repos\APDIRepSys_Sn\APDIRepSys\STRptForm\Sellthrough.Designer.cs(189,43,189,80): warning CS0169: The field 'Sellthrough.deliverydateDataGridViewTextBoxColumn' is never used
+1>APDIRepSys -> C:\Users\OP5\source\repos\APDIRepSys_Sn\APDIRepSys\bin\Debug\net8.0-windows\APDIRepSys.dll
+1>Done building project "APDIRepSys.csproj".
+========== Rebuild All: 1 succeeded, 0 failed, 0 skipped ==========
+========== Rebuild completed at 5:29 PM and took 00.742 seconds ==========
