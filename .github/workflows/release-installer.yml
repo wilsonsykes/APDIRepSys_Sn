@@ -1,0 +1,187 @@
+name: Build And Release Installer
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag (example: v3.2.0)"
+        required: true
+        type: string
+      release_name:
+        description: "Release title (optional, defaults to tag)"
+        required: false
+        type: string
+      release_notes:
+        description: "Release notes (optional)"
+        required: false
+        type: string
+      configuration:
+        description: "Build configuration"
+        required: true
+        default: "Release"
+        type: choice
+        options:
+          - Release
+          - Debug
+      platform:
+        description: "MSBuild platform"
+        required: true
+        default: "x64"
+        type: choice
+        options:
+          - x64
+      build_advanced_installer:
+        description: "Build MSI via Advanced Installer"
+        required: true
+        default: true
+        type: boolean
+      aip_path:
+        description: "Path to .aip on runner machine"
+        required: false
+        default: "C:\\Users\\OP5\\Documents\\Advanced Installer\\Projects\\APDI Reporting System\\APDI Reporting System.aip"
+        type: string
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-release:
+    runs-on: [self-hosted, windows, x64]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve Parameters
+        id: vars
+        shell: powershell
+        run: |
+          $eventName = "${{ github.event_name }}"
+
+          if ($eventName -eq "workflow_dispatch") {
+            $tag = "${{ github.event.inputs.tag }}"
+            $releaseName = "${{ github.event.inputs.release_name }}"
+            $releaseNotes = "${{ github.event.inputs.release_notes }}"
+            $configuration = "${{ github.event.inputs.configuration }}"
+            $platform = "${{ github.event.inputs.platform }}"
+            $buildAi = "${{ github.event.inputs.build_advanced_installer }}"
+            $aipPath = "${{ github.event.inputs.aip_path }}"
+          } else {
+            $tag = "${{ github.ref_name }}"
+            $releaseName = $tag
+            $releaseNotes = "Automated build for $tag"
+            $configuration = "Release"
+            $platform = "x64"
+            $buildAi = "true"
+            $aipPath = "C:\Users\OP5\Documents\Advanced Installer\Projects\APDI Reporting System\APDI Reporting System.aip"
+          }
+
+          if ([string]::IsNullOrWhiteSpace($tag)) {
+            throw "Release tag is required."
+          }
+
+          if ([string]::IsNullOrWhiteSpace($releaseName)) {
+            $releaseName = $tag
+          }
+
+          if ([string]::IsNullOrWhiteSpace($releaseNotes)) {
+            $releaseNotes = "Automated build for $tag"
+          }
+
+          "tag=$tag" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          "release_name=$releaseName" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          "configuration=$configuration" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          "platform=$platform" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          "build_ai=$($buildAi.ToLowerInvariant())" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          "aip_path=$aipPath" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+
+          @("release_notes<<EOF", $releaseNotes, "EOF") |
+            ForEach-Object { $_ | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8 }
+
+      - name: Build and Package
+        shell: powershell
+        run: |
+          $args = @(
+            "-NoProfile",
+            "-ExecutionPolicy", "Bypass",
+            "-File", ".\scripts\build-package.ps1",
+            "-Configuration", "${{ steps.vars.outputs.configuration }}",
+            "-Platform", "${{ steps.vars.outputs.platform }}"
+          )
+
+          if ("${{ steps.vars.outputs.build_ai }}" -eq "true") {
+            $args += @(
+              "-BuildAdvancedInstaller",
+              "-AipPath", "${{ steps.vars.outputs.aip_path }}"
+            )
+          }
+
+          & powershell @args
+
+      - name: Collect Release Files
+        id: files
+        shell: powershell
+        run: |
+          $repoRoot = "${{ github.workspace }}"
+          $packageDir = Join-Path $repoRoot "artifacts\packages"
+
+          $zip = Get-ChildItem -Path $packageDir -Filter *.zip -File |
+            Sort-Object LastWriteTime -Descending |
+            Select-Object -First 1
+
+          if (-not $zip) {
+            throw "No zip package found in $packageDir"
+          }
+
+          $releaseFiles = New-Object System.Collections.Generic.List[string]
+          $releaseFiles.Add($zip.FullName)
+
+          if ("${{ steps.vars.outputs.build_ai }}" -eq "true") {
+            $aipPath = "${{ steps.vars.outputs.aip_path }}"
+            $aipDir = Split-Path $aipPath -Parent
+            $aipName = [System.IO.Path]::GetFileNameWithoutExtension($aipPath)
+
+            if (Test-Path $aipDir) {
+              $msiCandidates = Get-ChildItem -Path $aipDir -Recurse -Filter *.msi -File |
+                Where-Object {
+                  $_.DirectoryName -like "$aipDir\$aipName*-SetupFiles*" -and
+                  $_.LastWriteTime -gt (Get-Date).AddHours(-2)
+                } |
+                Sort-Object LastWriteTime -Descending
+
+              foreach ($msi in $msiCandidates) {
+                $releaseFiles.Add($msi.FullName)
+              }
+            }
+          }
+
+          $releaseListPath = Join-Path $repoRoot "artifacts\release-files.txt"
+          New-Item -ItemType Directory -Path (Split-Path $releaseListPath -Parent) -Force | Out-Null
+          $releaseFiles | Set-Content -Path $releaseListPath -Encoding UTF8
+
+          @("release_files<<EOF") + $releaseFiles + @("EOF") |
+            ForEach-Object { $_ | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8 }
+
+          Write-Host "Release files:"
+          $releaseFiles | ForEach-Object { Write-Host " - $_" }
+
+      - name: Upload Build Log Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-${{ steps.vars.outputs.tag }}
+          path: |
+            artifacts/packages/*.zip
+            artifacts/release-files.txt
+          if-no-files-found: error
+
+      - name: Create or Update GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.vars.outputs.tag }}
+          name: ${{ steps.vars.outputs.release_name }}
+          body: ${{ steps.vars.outputs.release_notes }}
+          files: ${{ steps.files.outputs.release_files }}
+          fail_on_unmatched_files: true

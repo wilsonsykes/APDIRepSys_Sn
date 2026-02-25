@@ -53,6 +53,8 @@ It provides report workflows for:
 - `powershell -ExecutionPolicy Bypass -File .\scripts\build-package.ps1`
 - Full guide:
 - `docs/PACKAGING.md`
+- GitHub Release workflow:
+- `.github/workflows/release-installer.yml` (self-hosted Windows runner)
 
 ## Runtime Behavior
 

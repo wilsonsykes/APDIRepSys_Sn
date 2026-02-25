@@ -44,6 +44,34 @@ powershell -ExecutionPolicy Bypass -File .\scripts\build-package.ps1 `
   -AipPath "C:\path\to\YourInstaller.aip"
 ```
 
+## GitHub Release Workflow
+
+Workflow file:
+
+- `.github/workflows/release-installer.yml`
+
+What it does:
+
+1. Rebuilds the solution on a Windows runner.
+2. Runs `scripts/build-package.ps1`.
+3. Collects generated zip (and MSI when enabled).
+4. Publishes them as GitHub Release assets.
+
+Runner requirement:
+
+- Use a **self-hosted Windows x64 runner** with:
+- Visual Studio/MSBuild
+- Crystal Reports dependencies
+- Advanced Installer (if MSI build is enabled)
+- Access to the `.aip` path configured in workflow inputs
+
+How to run:
+
+1. Go to `Actions` -> `Build And Release Installer`.
+2. Click `Run workflow`.
+3. Set `tag` (example: `v3.2.0`) and keep defaults or adjust `aip_path`.
+4. Run.
+
 ## Common Failures
 
 - `file is locked`:
