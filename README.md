@@ -47,6 +47,13 @@ It provides report workflows for:
 4. Build solution.
 5. Run `APDIRepSys`.
 
+## Packaging
+
+- Use the scripted packaging flow for reproducible release artifacts:
+- `powershell -ExecutionPolicy Bypass -File .\scripts\build-package.ps1`
+- Full guide:
+- `docs/PACKAGING.md`
+
 ## Runtime Behavior
 
 - `APDIRepSys` exports filtered XML files to:

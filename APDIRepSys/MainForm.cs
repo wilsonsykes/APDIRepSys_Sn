@@ -1,6 +1,7 @@
 ﻿using APDIRepSys.GMROI;                    // Reference to GMROI form namespace
 using APDIRepSys.RFMDForm;
 using APDIRepSys.STRptForm;               // Reference to SellThrough report forms
+using APDIRepSys.Admin;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -24,7 +25,7 @@ namespace APDIRepSys
             btnCloseTreeView3.Visible = false;
         }
 
-        // 📌 Show STR TreeView when Button1 is clicked
+        // Show STR TreeView when Button1 is clicked
         private void button1_Click(object sender, EventArgs e)
         {
             treeView1.Visible = true;
@@ -35,7 +36,7 @@ namespace APDIRepSys
             btnCloseTreeView3.Visible = false;
         }
 
-        // 📌 Show GMROI TreeView when Button2 is clicked
+        // Show GMROI TreeView when Button2 is clicked
         private void button2_Click(object sender, EventArgs e)
         {
             treeView2.Visible = true;
@@ -58,7 +59,7 @@ namespace APDIRepSys
             btnCloseTreeView2.Visible = false;
         }
 
-        // 📌 Close STR TreeView
+        // Close STR TreeView
         private void btnCloseTreeView_Click(object sender, EventArgs e)
         {
             treeView1.Visible = false;
@@ -66,7 +67,7 @@ namespace APDIRepSys
 
         }
 
-        // 📌 Close GMROI TreeView
+        // Close GMROI TreeView
         private void btnCloseTreeView2_Click(object sender, EventArgs e)
         {
             treeView2.Visible = false;
@@ -81,7 +82,7 @@ namespace APDIRepSys
             btnCloseTreeView3.Visible = false;
         }
 
-        // 📌 Hide both tree views (acts like a global "close treeviews" button)
+        // Hide both tree views (acts like a global "close treeviews" button)
         private void button4_Click(object sender, EventArgs e)
         {
             treeView1.Visible = false;
@@ -90,7 +91,7 @@ namespace APDIRepSys
             btnCloseTreeView2.Visible = false;
         }
 
-        // 📌 Handle STR tree node selection
+        // Handle STR tree node selection
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (isLoadingForm || e.Node?.Parent == null) return; // Only trigger if not loading and a child node is selected
@@ -134,7 +135,7 @@ namespace APDIRepSys
             }
         }
 
-        // 📌 Handle GMROI tree node selection (modal display)
+        // Handle GMROI tree node selection (modal display)
         private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (e.Node?.Parent == null) return;
@@ -148,7 +149,7 @@ namespace APDIRepSys
         }
 
 
-        // 📌 Handle RFMD tree node selection (non-modal display)
+        // Handle RFMD tree node selection (non-modal display)
         private void treeView3_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (isLoadingForm || e.Node?.Parent == null) return; // Only trigger if not loading and a child node is selected
@@ -192,7 +193,7 @@ namespace APDIRepSys
             }
         }
 
-        // 📌 Returns a form instance based on node name
+        // Returns a form instance based on node name
         private Form GetFormFromNode(string nodeName)
         {
             return nodeName switch
@@ -206,6 +207,7 @@ namespace APDIRepSys
                 "str_list_summary3" => new SysSTRpt3(),
                 "str_list_summary6" => new SysSTRpt6(),
                 "str_list_summary9" => new SysSTRpt9(),
+                "image_path_validator" => new ImagePathValidatorForm(),
                 "create_rfmd" => new RfmdMainForm(),
                 "rfmd_list" => new RfmdRecSummary(),
                 "rfmd_memo" => new RfmdMemo(),
@@ -214,7 +216,7 @@ namespace APDIRepSys
             };
         }
 
-        // 📌 Show a simple loading form overlay
+        // Show a simple loading form overlay
         private void ShowLoadingOverlay()
         {
             if (Application.OpenForms["LoadingOverlay"] != null) return;
@@ -245,7 +247,7 @@ namespace APDIRepSys
             loadingOverlay.Refresh(); // Ensure UI refresh
         }
 
-        // 📌 Close and dispose the loading overlay
+        // Close and dispose the loading overlay
         private void CloseLoadingOverlay()
         {
             Form loadingOverlay = Application.OpenForms["LoadingOverlay"];
@@ -268,12 +270,11 @@ namespace APDIRepSys
             }
         }
 
-        // 📌 Optional: Reserved for startup logic
+        // Optional: Reserved for startup logic
         private void MainForm_Load(object sender, EventArgs e)
         {
             // Currently unused — safe to remove if never hooked
         }
 
-        
     }
 }

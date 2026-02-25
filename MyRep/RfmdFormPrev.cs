@@ -24,12 +24,6 @@ namespace MyRep
 
                 string reportPath = Path.Combine(appDataDirectory, rptFileName);
                 string xmlPath = Path.Combine(appDataDirectory, "rfmd.xml");
-                // ✅ Ensure the report file exists before loading
-                if (!File.Exists(reportPath))
-                {
-                    MessageBox.Show($"Error: Report file not found at:\n{reportPath}", "Missing Report", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
                 // ✅ Ensure the XML data file exists before loading
                 if (!File.Exists(xmlPath))
                 {
@@ -62,11 +56,14 @@ namespace MyRep
 
                 }
 
-                // load the Crystal Report File
-                this.rfmdPrint1.Load(reportPath);
+                // Load external report when available; otherwise use embedded report
+                ReportRuntimeHelper.TryLoadReport(this.rfmdPrint1, reportPath);
 
 
 
+
+                // ✅ Resolve image paths before binding data to Crystal Report.
+                ReportRuntimeHelper.NormalizeImagePaths(reportDataset);
 
                 // ✅ Set the dataset as the data source for the report
                 this.rfmdPrint1.SetDataSource(reportDataset);
@@ -81,7 +78,7 @@ namespace MyRep
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading report:\n{ex.Message}", "Load Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error loading report:\n{ex.Message}", "Load Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

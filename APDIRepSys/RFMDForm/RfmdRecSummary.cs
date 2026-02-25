@@ -114,12 +114,7 @@ namespace APDIRepSys.RFMDForm
                     filteredDataSet.WriteXml(writer, XmlWriteMode.WriteSchema);
                 }
 
-                // ✅ Confirm report file exists before trying to launch
-                if (!File.Exists(reportFilePath))
-                {
-                    MessageBox.Show($"Error: Report file not found at:\n{reportFilePath}", "Missing Report", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                reportFilePath = ReportLaunchHelper.ResolveReportArgument(reportFilePath, reportFileName);
 
                 // ✅ Launch MyRep.exe and pass XML and RPT paths
                 string myRepPath = Path.Combine(Application.StartupPath, "MyRep.exe");
@@ -227,12 +222,7 @@ namespace APDIRepSys.RFMDForm
                     filteredDataSet.WriteXml(writer, XmlWriteMode.WriteSchema);
                 }
 
-                // ✅ Confirm report file exists before trying to launch
-                if (!File.Exists(reportFilePath))
-                {
-                    MessageBox.Show($"Error: Report file not found at:\n{reportFilePath}", "Missing Report", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                reportFilePath = ReportLaunchHelper.ResolveReportArgument(reportFilePath, reportFileName);
 
                 // ✅ Launch MyRep.exe and pass XML and RPT paths
                 string myRepPath = Path.Combine(Application.StartupPath, "MyRep.exe");

@@ -26,13 +26,6 @@ namespace MyRep
                 string reportPath = Path.Combine(appDataDirectory, rptFileName);
                 string xmlPath = Path.Combine(appDataDirectory, "syssthrulist.xml");
 
-                // ✅ Ensure the report file exists before loading
-                if (!File.Exists(reportPath))
-                {
-                    MessageBox.Show($"Error: Report file not found at:\n{reportPath}", "Missing Report", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
                 // ✅ Ensure the XML data file exists before loading
                 if (!File.Exists(xmlPath))
                 {
@@ -68,8 +61,11 @@ namespace MyRep
                     return;
                 }
 
-                // ✅ Load the Crystal Report file
-                this.reportDocument4.Load(reportPath);
+                // ✅ Load external report when available; otherwise use embedded report
+                ReportRuntimeHelper.TryLoadReport(this.reportDocument4, reportPath);
+
+                // ✅ Resolve image paths before binding data to Crystal Report.
+                ReportRuntimeHelper.NormalizeImagePaths(reportDataset);
 
                 // ✅ Set the dataset as the data source for the report
                 this.reportDocument4.SetDataSource(reportDataset);

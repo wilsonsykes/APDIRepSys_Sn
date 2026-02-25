@@ -101,12 +101,7 @@ namespace APDIRepSys.STRptForm
                 // ✅ Debugging: Ensure XML contains expected data
                 //MessageBox.Show($"XML Rows Saved: {filteredTable.Rows.Count}");
 
-                // ✅ Check if Crystal Report file exists
-                if (!File.Exists(reportFilePath))
-                {
-                    MessageBox.Show($"Error: Report file not found at:\n{reportFilePath}", "Missing Report", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                reportFilePath = ReportLaunchHelper.ResolveReportArgument(reportFilePath, reportFileName);
 
                 // ✅ Execute MyRep.exe with the correct XML and report file
                 string myRepPath = Path.Combine(Application.StartupPath, "MyRep.exe");

@@ -43,7 +43,8 @@
             TreeNode treeNode12 = new TreeNode("STR List Summary 3 Mos");
             TreeNode treeNode13 = new TreeNode("STR List Summary 6 Mos");
             TreeNode treeNode14 = new TreeNode("STR List Summary 9 Mos");
-            TreeNode treeNode15 = new TreeNode("Sell-Thru Report", new TreeNode[] { treeNode6, treeNode7, treeNode8, treeNode9, treeNode10, treeNode11, treeNode12, treeNode13, treeNode14 });
+            TreeNode treeNode15 = new TreeNode("Image Path Validator (Admin)");
+            TreeNode treeNode16 = new TreeNode("Sell-Thru Report", new TreeNode[] { treeNode6, treeNode7, treeNode8, treeNode9, treeNode10, treeNode11, treeNode12, treeNode13, treeNode14, treeNode15 });
             panel1 = new Panel();
             btnCloseTreeView3 = new Button();
             treeView3 = new TreeView();
@@ -208,10 +209,12 @@
             treeNode13.Text = "STR List Summary 6 Mos";
             treeNode14.Name = "str_list_summary9";
             treeNode14.Text = "STR List Summary 9 Mos";
-            treeNode15.ForeColor = Color.White;
-            treeNode15.Name = "STR_Root";
-            treeNode15.Text = "Sell-Thru Report";
-            treeView1.Nodes.AddRange(new TreeNode[] { treeNode15 });
+            treeNode15.Name = "image_path_validator";
+            treeNode15.Text = "Image Path Validator (Admin)";
+            treeNode16.ForeColor = Color.White;
+            treeNode16.Name = "STR_Root";
+            treeNode16.Text = "Sell-Thru Report";
+            treeView1.Nodes.AddRange(new TreeNode[] { treeNode16 });
             treeView1.Size = new Size(290, 138);
             treeView1.TabIndex = 1;
             treeView1.AfterSelect += treeView1_AfterSelect;
