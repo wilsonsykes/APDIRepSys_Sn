@@ -275,7 +275,7 @@ namespace APDIRepSys.RFMDForm
                         // 🔄 Load memo fields if available for the selected RFMD
                         try
                         {
-                            using (var conn = new NpgsqlConnection("Host=192.168.2.152;Port=5432;Username=postgres;Password=d4s31n@;Database=apdireports"))
+                            using (var conn = new NpgsqlConnection("Host=192.168.2.166;Port=5432;Username=postgres;Password=postgres;Database=apdireports"))
                             {
                                 conn.Open();
 
@@ -410,7 +410,7 @@ namespace APDIRepSys.RFMDForm
         {
             try
             {
-                string connString = "Host=192.168.2.152;Port=5432;Username=postgres;Password=d4s31n@;Database=apdireports"; // Use your actual connection string
+                string connString = "Host=192.168.2.166;Port=5432;Username=postgres;Password=postgres;Database=apdireports"; // Use your actual connection string
 
                 string rfmdNo = toolStripComboBox1.Text.Trim();
                 string memoNo = textBoxMemoNo.Text.Trim();
@@ -467,7 +467,7 @@ namespace APDIRepSys.RFMDForm
         {
             try
             {
-                string connString = "Host=192.168.2.152;Port=5432;Username=postgres;Password=d4s31n@;Database=apdireports"; // Replace with actual
+                string connString = "Host=192.168.2.166;Port=5432;Username=postgres;Password=postgres;Database=apdireports"; // Replace with actual
 
                 string query = @"SELECT * FROM public.rfmd_list_summary WHERE rfmd_no = @rfmd_no ORDER BY id;";
 

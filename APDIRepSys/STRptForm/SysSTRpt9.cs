@@ -105,7 +105,7 @@ namespace APDIRepSys.STRptForm
                 return;
             }
 
-            using (NpgsqlConnection conn = new NpgsqlConnection("Host=192.168.2.152;Database=apdireports;Username=postgres;Password=d4s31n@"))
+            using (NpgsqlConnection conn = new NpgsqlConnection("Host=192.168.2.166;Database=apdireports;Username=postgres;Password=postgres"))
             {
                 try
                 {
@@ -317,7 +317,7 @@ namespace APDIRepSys.STRptForm
                 return;
             }
 
-            using (NpgsqlConnection conn = new NpgsqlConnection("Host=192.168.2.152;Database=apdireports;Username=postgres;Password=d4s31n@"))
+            using (NpgsqlConnection conn = new NpgsqlConnection("Host=192.168.2.166;Database=apdireports;Username=postgres;Password=postgres"))
             {
                 try
                 {

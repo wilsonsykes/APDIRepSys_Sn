@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
@@ -13,7 +13,7 @@ namespace APDIRepSys.Admin
 {
     public sealed class ImagePathValidatorForm : Form
     {
-        private const string ConnectionString = "Host=192.168.2.152;Database=apdireports;Username=postgres;Password=d4s31n@";
+        private const string ConnectionString = "Host=192.168.2.166;Database=apdireports;Username=postgres;Password=postgres";
 
         private readonly BindingSource issuesSource = new BindingSource();
         private readonly DataGridView issuesGrid = new DataGridView();
