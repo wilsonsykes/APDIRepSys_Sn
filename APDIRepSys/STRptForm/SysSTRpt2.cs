@@ -36,6 +36,7 @@ namespace APDIRepSys.STRptForm
             try
             {
                 // ✅ Load all data from the database into the dataset
+                this.syssThruReport2TableAdapter1.Connection.ConnectionString = global::APDIRepSys.DatabaseConnectionHelper.GetOdbcConnectionString();
                 this.syssThruReport2TableAdapter1.Fill(this.dataSet5.SysSThruReport2);
 
                 // ✅ Apply number/date formatting
@@ -102,7 +103,7 @@ namespace APDIRepSys.STRptForm
                 return;
             }
 
-            using (NpgsqlConnection conn = new NpgsqlConnection("Host=192.168.2.166;Database=apdireports;Username=postgres;Password=postgres"))
+            using (NpgsqlConnection conn = new NpgsqlConnection(global::APDIRepSys.DatabaseConnectionHelper.GetNpgsqlConnectionString()))
             {
                 try
                 {
@@ -315,7 +316,7 @@ namespace APDIRepSys.STRptForm
                 return;
             }
 
-            using (NpgsqlConnection conn = new NpgsqlConnection("Host=192.168.2.166;Database=apdireports;Username=postgres;Password=postgres"))
+            using (NpgsqlConnection conn = new NpgsqlConnection(global::APDIRepSys.DatabaseConnectionHelper.GetNpgsqlConnectionString()))
             {
                 try
                 {
@@ -530,3 +531,5 @@ namespace APDIRepSys.STRptForm
 
     }
 }
+
+

@@ -34,6 +34,7 @@ namespace APDIRepSys.RFMDForm
             try
             {
                 // Load data first
+                this.rfmdMainFormTableAdapter1.Connection.ConnectionString = global::APDIRepSys.DatabaseConnectionHelper.GetOdbcConnectionString();
                 this.rfmdMainFormTableAdapter1.Fill(this.DataSet13.RfmdMainForm);
                 dataGridView1.DataSource = this.DataSet13.RfmdMainForm;
 
@@ -171,7 +172,7 @@ namespace APDIRepSys.RFMDForm
                 return;
             }
 
-            using (NpgsqlConnection conn = new NpgsqlConnection("Host=192.168.2.166;Database=apdireports;Username=postgres;Password=postgres"))
+            using (NpgsqlConnection conn = new NpgsqlConnection(global::APDIRepSys.DatabaseConnectionHelper.GetNpgsqlConnectionString()))
             {
                 try
                 {
@@ -479,3 +480,5 @@ namespace APDIRepSys.RFMDForm
     }
 
 }
+
+

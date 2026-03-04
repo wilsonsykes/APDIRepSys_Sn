@@ -27,6 +27,7 @@ namespace APDIRepSys.RFMDForm
             try
             {
                 // ✅ Load all data from the database into the dataset
+                this.rfmdRecSummaryTableAdapter1.Connection.ConnectionString = global::APDIRepSys.DatabaseConnectionHelper.GetOdbcConnectionString();
                 this.rfmdRecSummaryTableAdapter1.Fill(this.DataSet15.RfmdRecSummary);
 
                 // ✅ Extract distinct RFMD numbers for filtering before modifying the grid
@@ -275,7 +276,7 @@ namespace APDIRepSys.RFMDForm
                         // 🔄 Load memo fields if available for the selected RFMD
                         try
                         {
-                            using (var conn = new NpgsqlConnection("Host=192.168.2.166;Port=5432;Username=postgres;Password=postgres;Database=apdireports"))
+                            using (var conn = new NpgsqlConnection(global::APDIRepSys.DatabaseConnectionHelper.GetNpgsqlConnectionString()))
                             {
                                 conn.Open();
 
@@ -410,7 +411,7 @@ namespace APDIRepSys.RFMDForm
         {
             try
             {
-                string connString = "Host=192.168.2.166;Port=5432;Username=postgres;Password=postgres;Database=apdireports"; // Use your actual connection string
+                string connString = global::APDIRepSys.DatabaseConnectionHelper.GetNpgsqlConnectionString();
 
                 string rfmdNo = toolStripComboBox1.Text.Trim();
                 string memoNo = textBoxMemoNo.Text.Trim();
@@ -467,7 +468,7 @@ namespace APDIRepSys.RFMDForm
         {
             try
             {
-                string connString = "Host=192.168.2.166;Port=5432;Username=postgres;Password=postgres;Database=apdireports"; // Replace with actual
+                string connString = global::APDIRepSys.DatabaseConnectionHelper.GetNpgsqlConnectionString();
 
                 string query = @"SELECT * FROM public.rfmd_list_summary WHERE rfmd_no = @rfmd_no ORDER BY id;";
 
@@ -502,3 +503,5 @@ namespace APDIRepSys.RFMDForm
 
 
 }
+
+

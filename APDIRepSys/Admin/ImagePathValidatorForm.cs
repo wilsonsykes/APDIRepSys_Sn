@@ -13,7 +13,7 @@ namespace APDIRepSys.Admin
 {
     public sealed class ImagePathValidatorForm : Form
     {
-        private const string ConnectionString = "Host=192.168.2.166;Database=apdireports;Username=postgres;Password=postgres";
+        private static string ConnectionString => global::APDIRepSys.DatabaseConnectionHelper.GetNpgsqlConnectionString();
 
         private readonly BindingSource issuesSource = new BindingSource();
         private readonly DataGridView issuesGrid = new DataGridView();
@@ -437,3 +437,4 @@ WHERE name = @name AND path = @oldPath;";
         }
     }
 }
+

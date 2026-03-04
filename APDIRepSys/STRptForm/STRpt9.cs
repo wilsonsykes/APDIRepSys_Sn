@@ -41,6 +41,7 @@ namespace APDIRepSys.STRptForm
             try
             {
                 // ✅ Load all data into the dataset
+                this.sThruReport9TableAdapter1.Connection.ConnectionString = global::APDIRepSys.DatabaseConnectionHelper.GetOdbcConnectionString();
                 this.sThruReport9TableAdapter1.Fill(this.dataSet9.SThruReport9);
                 dataGridView1.DataSource = this.dataSet9.SThruReport9; // ✅ Start with full dataset
 
@@ -325,7 +326,7 @@ namespace APDIRepSys.STRptForm
                 return;
             }
 
-            using (NpgsqlConnection conn = new NpgsqlConnection("Host=192.168.2.166;Database=apdireports;Username=postgres;Password=postgres"))
+            using (NpgsqlConnection conn = new NpgsqlConnection(global::APDIRepSys.DatabaseConnectionHelper.GetNpgsqlConnectionString()))
             {
                 try
                 {
@@ -534,6 +535,8 @@ namespace APDIRepSys.STRptForm
         }
     }
 }
+
+
 
 
 

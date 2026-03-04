@@ -118,6 +118,10 @@ namespace APDIRepSys.DataSet
 {
 }
 
+namespace APDIRepSys.DataSet
+{
+}
+
 namespace APDIRepSys.DataSet.DataSet2TableAdapters {
     
     
