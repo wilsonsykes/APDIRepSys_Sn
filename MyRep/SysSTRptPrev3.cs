@@ -53,6 +53,8 @@ namespace MyRep
                 }
 
                 DataTable reportTable = reportDataset.Tables["SysSThruReport3"];
+                EnsureStringColumn(reportTable, "image");
+                EnsureStringColumn(reportTable, "image_datagrid");
 
 
                 // ✅ Debugging: Display the number of rows loaded from XML
@@ -82,6 +84,19 @@ namespace MyRep
             {
                 // ✅ Catch any unexpected errors and display them in a message box
                 MessageBox.Show($"Error loading report:\n{ex.Message}", "Report Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private static void EnsureStringColumn(DataTable table, string columnName)
+        {
+            if (table == null || string.IsNullOrWhiteSpace(columnName))
+            {
+                return;
+            }
+
+            if (!table.Columns.Contains(columnName))
+            {
+                table.Columns.Add(columnName, typeof(string));
             }
         }
 

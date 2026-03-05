@@ -196,6 +196,9 @@ namespace APDIRepSys.STRptForm
                     filteredTable.ImportRow(row);
                 }
 
+                // ✅ Fallback: if summary rows do not have image values, use product_images.path by stock code.
+                BackfillMissingImagePathsFromProductImages(filteredTable);
+
 
                 // ✅ Force NULLs in order_amount to remain as DBNull.Value
                 if (filteredTable.Columns.Contains("order_amount"))
@@ -242,6 +245,92 @@ namespace APDIRepSys.STRptForm
             catch (Exception ex)
             {
                 MessageBox.Show("Error saving file or executing MyRep.exe: " + ex.Message, "File/Execution Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private static void BackfillMissingImagePathsFromProductImages(DataTable table)
+        {
+            if (table == null || table.Rows.Count == 0)
+            {
+                return;
+            }
+
+            if (!table.Columns.Contains("product") || !table.Columns.Contains("image"))
+            {
+                return;
+            }
+
+            var missingProducts = table.AsEnumerable()
+                .Where(r =>
+                {
+                    string product = Convert.ToString(r["product"])?.Trim() ?? string.Empty;
+                    string image = table.Columns.Contains("image") ? Convert.ToString(r["image"])?.Trim() ?? string.Empty : string.Empty;
+                    return !string.IsNullOrWhiteSpace(product) && string.IsNullOrWhiteSpace(image);
+                })
+                .Select(r => Convert.ToString(r["product"])?.Trim())
+                .Where(p => !string.IsNullOrWhiteSpace(p))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .ToArray();
+
+            if (missingProducts.Length == 0)
+            {
+                return;
+            }
+
+            var lookup = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+            using (var conn = new NpgsqlConnection(global::APDIRepSys.DatabaseConnectionHelper.GetNpgsqlConnectionString()))
+            using (var cmd = new NpgsqlCommand("SELECT name, path FROM public.product_images WHERE name = ANY(@names);", conn))
+            {
+                cmd.Parameters.AddWithValue("@names", missingProducts);
+                conn.Open();
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string name = reader["name"]?.ToString()?.Trim() ?? string.Empty;
+                        string path = reader["path"]?.ToString()?.Trim() ?? string.Empty;
+
+                        if (!string.IsNullOrWhiteSpace(name) &&
+                            !string.IsNullOrWhiteSpace(path) &&
+                            !lookup.ContainsKey(name))
+                        {
+                            lookup[name] = path;
+                        }
+                    }
+                }
+            }
+
+            if (lookup.Count == 0)
+            {
+                return;
+            }
+
+            bool hasImageDataGridColumn = table.Columns.Contains("image_datagrid");
+
+            foreach (DataRow row in table.Rows)
+            {
+                string product = Convert.ToString(row["product"])?.Trim() ?? string.Empty;
+                if (string.IsNullOrWhiteSpace(product) || !lookup.TryGetValue(product, out string? imagePath))
+                {
+                    continue;
+                }
+
+                string currentImage = Convert.ToString(row["image"])?.Trim() ?? string.Empty;
+                if (string.IsNullOrWhiteSpace(currentImage))
+                {
+                    row["image"] = imagePath;
+                }
+
+                if (hasImageDataGridColumn)
+                {
+                    string currentGridImage = Convert.ToString(row["image_datagrid"])?.Trim() ?? string.Empty;
+                    if (string.IsNullOrWhiteSpace(currentGridImage))
+                    {
+                        row["image_datagrid"] = imagePath;
+                    }
+                }
             }
         }
 

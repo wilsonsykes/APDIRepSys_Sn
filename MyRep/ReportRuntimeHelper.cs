@@ -35,13 +35,29 @@ namespace MyRep
 
             string fileName = Path.GetFileName(reportInput);
             string appDataReports = GetReportsDirectory();
+            string bundledReport = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataFolder", "Reports", fileName);
+
+            // If the requested report is from %LocalAppData% and a newer bundled copy exists,
+            // prefer the bundled report to avoid stale local .rpt schema mismatches.
+            if (File.Exists(reportInput) &&
+                IsPathUnderDirectory(reportInput, appDataReports) &&
+                File.Exists(bundledReport))
+            {
+                DateTime localLastWriteUtc = File.GetLastWriteTimeUtc(reportInput);
+                DateTime bundledLastWriteUtc = File.GetLastWriteTimeUtc(bundledReport);
+
+                if (bundledLastWriteUtc > localLastWriteUtc)
+                {
+                    return bundledReport;
+                }
+            }
 
             string[] candidates =
             {
                 reportInput,
                 Path.Combine(appDataReports, reportInput),
                 Path.Combine(appDataReports, fileName),
-                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataFolder", "Reports", fileName),
+                bundledReport,
                 Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName)
             };
 
@@ -54,6 +70,29 @@ namespace MyRep
             }
 
             return null;
+        }
+
+        private static bool IsPathUnderDirectory(string filePath, string parentDirectory)
+        {
+            if (string.IsNullOrWhiteSpace(filePath) || string.IsNullOrWhiteSpace(parentDirectory))
+            {
+                return false;
+            }
+
+            try
+            {
+                string fullPath = Path.GetFullPath(filePath)
+                    .TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+                string fullParent = Path.GetFullPath(parentDirectory)
+                    .TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+
+                return fullPath.StartsWith(fullParent + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase) ||
+                       fullPath.Equals(fullParent, StringComparison.OrdinalIgnoreCase);
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private static string[] BuildImageSearchRoots()
